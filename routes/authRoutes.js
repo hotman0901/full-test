@@ -13,4 +13,8 @@ module.exports = (app) => {
 
   // 當登入後 callback redirect用，必須使用get取得，且使用GoogleStrategy
   app.get('/auth/google/callback', passport.authenticate('google'));
+
+  app.get('/api/current_user', (req, res) => {
+    res.send(req.user);
+  })
 };

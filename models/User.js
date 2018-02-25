@@ -3,8 +3,18 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 // 這裡是宣告table格式
+// const userSchema = new Schema({
+//   googleId: String
+// });
+
+// 發現新版default unique=true
 const userSchema = new Schema({
-  googleId: String
-})
+  googleId: {
+    type: String,
+    trim: true,
+    unique: true
+  }
+});
+
 
 mongoose.model('users', userSchema);
